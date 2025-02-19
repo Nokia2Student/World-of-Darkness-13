@@ -1853,6 +1853,7 @@
 #include "code\modules\client\preferences.dm"
 #include "code\modules\client\preferences_savefile.dm"
 #include "code\modules\client\preferences_toggles.dm"
+#include "code\modules\client\zheadshot_cumshot.dm"
 #include "code\modules\client\verbs\etips.dm"
 #include "code\modules\client\verbs\ooc.dm"
 #include "code\modules\client\verbs\ping.dm"

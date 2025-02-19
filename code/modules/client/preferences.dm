@@ -105,7 +105,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/list/ignoring = list()
 
-	var/clientfps = -1
+	var/clientfps = 60
 
 	var/parallax
 
@@ -190,7 +190,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/ambitious = FALSE
 	var/flavor_text
-
+	var/headshot
+	var/headshot_link
 	var/friend_text
 	var/enemy_text
 	var/lover_text
@@ -421,6 +422,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<a href='?_src_=prefs;preference=name;task=random'>Random Name</A> "
 			dat += "<br><b>Name:</b> "
 			dat += "<a href='?_src_=prefs;preference=name;task=input'>[real_name]</a><BR>"
+
 
 			if(!(AGENDER in pref_species.species_traits))
 				var/dispGender
@@ -725,9 +727,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<a href='?_src_=prefs;preference=change_appearance;task=input'>Change Appearance (3)</a><BR>"
 
 			dat += "<BR><b>Flavor Text:</b> [flavor_text] <a href='?_src_=prefs;preference=flavor_text;task=input'>Change</a><BR>"
+			dat += "<br><br>"
+
+			dat += "<h2>Headshot Image</h2>"
+			dat += "<a href='?_src_=prefs;preference=headshot'><b>Set Headshot Image</b></a><br>"
+			if(features["headshot_link"])
+				dat += "<img style='border:2px solid rgb(255, 255, 255)' src='[features["headshot_link"]]' width='200px' height='200px'>"
 
 			dat += "<h2>[make_font_cool("EQUIP")]</h2>"
-
+			dat += "<br><br>"
 			dat += "<b>Underwear:</b><BR><a href ='?_src_=prefs;preference=underwear;task=input'>[underwear]</a>"
 //			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR]'>[(randomise[RANDOM_UNDERWEAR]) ? "Lock" : "Unlock"]</A>"
 
@@ -2339,39 +2347,39 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						reset_stats(TRUE)
 
 				if("strength")
-					if(handle_upgrade(Strength, Strength * 5, get_gen_attribute_limit(generation), "Physical"))
+					if(handle_upgrade(Strength, Strength * 5, get_gen_attribute_limit(generation-generation_bonus), "Physical"))
 						Strength++
 
 				if("dexterity")
-					if(handle_upgrade(Dexterity, Dexterity * 5, get_gen_attribute_limit(generation), "Physical"))
+					if(handle_upgrade(Dexterity, Dexterity * 5, get_gen_attribute_limit(generation-generation_bonus), "Physical"))
 						Dexterity++
 
 				if("stamina")
-					if(handle_upgrade(Stamina, Stamina * 5, get_gen_attribute_limit(generation), "Physical"))
+					if(handle_upgrade(Stamina, Stamina * 5, get_gen_attribute_limit(generation-generation_bonus), "Physical"))
 						Stamina++
 
 				if("charisma")
-					if(handle_upgrade(Charisma, Charisma * 5, get_gen_attribute_limit(generation), "Social"))
+					if(handle_upgrade(Charisma, Charisma * 5, get_gen_attribute_limit(generation-generation_bonus), "Social"))
 						Charisma++
 
 				if("manipulation")
-					if(handle_upgrade(Manipulation, Manipulation * 5, get_gen_attribute_limit(generation), "Social"))
+					if(handle_upgrade(Manipulation, Manipulation * 5, get_gen_attribute_limit(generation-generation_bonus), "Social"))
 						Manipulation++
 
 				if("appearance")
-					if(handle_upgrade(Appearance, Appearance * 5, get_gen_attribute_limit(generation), "Social"))
+					if(handle_upgrade(Appearance, Appearance * 5, get_gen_attribute_limit(generation-generation_bonus), "Social"))
 						Appearance++
 
 				if("perception")
-					if(handle_upgrade(Perception, Perception * 5, get_gen_attribute_limit(generation), "Mental"))
+					if(handle_upgrade(Perception, Perception * 5, get_gen_attribute_limit(generation-generation_bonus), "Mental"))
 						Perception++
 
 				if("intelligence")
-					if(handle_upgrade(Intelligence, Intelligence * 5, get_gen_attribute_limit(generation), "Mental"))
+					if(handle_upgrade(Intelligence, Intelligence * 5, get_gen_attribute_limit(generation-generation_bonus), "Mental"))
 						Intelligence++
 
 				if("wits")
-					if(handle_upgrade(Wits, Wits * 5, get_gen_attribute_limit(generation), "Mental"))
+					if(handle_upgrade(Wits, Wits * 5, get_gen_attribute_limit(generation-generation_bonus), "Mental"))
 						Wits++
 
 				if("alertness")
@@ -2621,6 +2629,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/new_gen = input(user, "Select your generation (LOWER GENERATION MEANS LESS JOB SLOTS):", "Character Preference") as num|null
 					if(new_gen)
 						generation = clamp(new_gen, 7, 13)
+						generation_bonus = 0
+						diablerist = FALSE
 
 				if("friend_text")
 					var/new_text = input(user, "What a Friend knows about me:", "Character Preference") as text|null
@@ -2636,10 +2646,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						lover_text = trim(copytext_char(sanitize(new_text), 1, 512))
 
 				if("flavor_text")
-					var/new_flavor = input(user, "Choose your character's flavor text:", "Character Preference")  as text|null
+					var/new_flavor = input(user, "Choose your character's flavor text:", "Character Preference") as text|null
 					if(new_flavor)
-						flavor_text = trim(copytext_char(sanitize(new_flavor), 1, 512))
-
+						if(length(new_flavor) > 3 * 512)
+							to_chat(user, "Слишком большой...")
+						else
+							flavor_text = trim(copytext_char(sanitize(new_flavor), 1, 512))
+              
 				if("change_appearance")
 					if((true_experience < 3) || !slotlocked)
 						return
@@ -2670,8 +2683,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 					var/result = input(user, "Select a species", "Species Selection") as null|anything in choose_species
 					if(result)
-						all_quirks = list()
-						SetQuirks(user)
 						var/newtype = GLOB.species_list[result]
 						pref_species = new newtype()
 						discipline_types = list()
@@ -2688,6 +2699,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							features["mcolor"] = pref_species.default_color
 						if(randomise[RANDOM_NAME])
 							real_name = pref_species.random_name(gender)
+						all_quirks = list()
+						SetQuirks(user)
 
 				if("mutant_color")
 					if(slotlocked)
@@ -3311,7 +3324,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		var/datum/vampireclane/CLN = new clane.type()
 		character.clane = CLN
 		character.clane.current_accessory = clane_accessory
-		character.maxbloodpool = 10 + ((13 - generation) * 3)
+		character.maxbloodpool = get_gen_bloodpool(generation-generation_bonus)
 		character.bloodpool = rand(2, character.maxbloodpool)
 		character.generation = generation-generation_bonus
 		character.max_yin_chi = character.maxbloodpool
@@ -3360,6 +3373,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			GLOB.masquerade_breakers_list += character
 
 	character.flavor_text = sanitize_text(flavor_text)
+	if (features["headshot_link"])
+		character.headshot_link += (features["headshot_link"])
 	character.gender = gender
 	character.age = age
 	character.chronological_age = total_age

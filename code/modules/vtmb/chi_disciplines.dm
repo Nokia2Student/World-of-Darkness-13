@@ -1198,13 +1198,16 @@
 	cost_demon = 1
 	discipline_type = "Demon"
 
+/datum/chi_discipline/iron_mountain/post_gain(mob/living/carbon/human/user)
+	user.attributes.passive_fortitude = level
+
 /datum/chi_discipline/iron_mountain/activate(mob/living/target, mob/living/carbon/human/caster)
 	..()
 //	caster.remove_overlay(FORTITUDE_LAYER)
 //	var/mutable_appearance/fortitude_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "mountain", -FORTITUDE_LAYER)
 //	caster.overlays_standing[FORTITUDE_LAYER] = fortitude_overlay
 //	caster.apply_overlay(FORTITUDE_LAYER)
-	caster.attributes.fortitude_bonus = level_casting*2
+	caster.attributes.fortitude_bonus = level_casting
 	spawn(delay+caster.discipline_time_plus)
 		if(caster)
 			caster.playsound_local(caster.loc, 'code/modules/wod13/sounds/ironmountain_deactivate.ogg', 50, FALSE)
@@ -1783,7 +1786,7 @@
 			var/sound/auspexbeat = sound('code/modules/wod13/sounds/auspex.ogg', repeat = TRUE)
 			caster.playsound_local(caster, auspexbeat, 75, 0, channel = CHANNEL_DISCIPLINES, use_reverb = FALSE)
 			ADD_TRAIT(caster, TRAIT_NIGHT_VISION, TRAIT_GENERIC)
-			caster.see_invisible = SEE_INVISIBLE_LEVEL_OBFUSCATE
+			caster.see_invisible = SEE_INVISIBLE_LEVEL_OBFUSCATE+level
 			caster.update_sight()
 			caster.add_client_colour(/datum/client_colour/glass_colour/lightblue)
 			var/datum/atom_hud/abductor_hud = GLOB.huds[DATA_HUD_ABDUCTOR]
@@ -1792,7 +1795,7 @@
 			spawn(delay+caster.discipline_time_plus)
 				if(caster)
 					caster.auspex_examine = FALSE
-					caster.see_invisible = initial(caster.see_invisible)
+					caster.update_sight()
 					abductor_hud.remove_hud_from(caster)
 					caster.stop_sound_channel(CHANNEL_DISCIPLINES)
 					caster.playsound_local(caster.loc, 'code/modules/wod13/sounds/auspex_deactivate.ogg', 50, FALSE)
@@ -1804,7 +1807,7 @@
 			caster.playsound_local(caster, auspexbeat, 75, 0, channel = CHANNEL_DISCIPLINES, use_reverb = FALSE)
 			ADD_TRAIT(caster, TRAIT_THERMAL_VISION, TRAIT_GENERIC)
 			ADD_TRAIT(caster, TRAIT_NIGHT_VISION, TRAIT_GENERIC)
-			caster.see_invisible = SEE_INVISIBLE_LEVEL_OBFUSCATE
+			caster.see_invisible = SEE_INVISIBLE_LEVEL_OBFUSCATE+level
 			caster.update_sight()
 			var/datum/atom_hud/health_hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
 			health_hud.add_hud_to(caster)
@@ -1812,7 +1815,7 @@
 			spawn(delay+caster.discipline_time_plus)
 				if(caster)
 					caster.auspex_examine = FALSE
-					caster.see_invisible = initial(caster.see_invisible)
+					caster.update_sight()
 					health_hud.remove_hud_from(caster)
 					caster.stop_sound_channel(CHANNEL_DISCIPLINES)
 					caster.playsound_local(caster.loc, 'code/modules/wod13/sounds/auspex_deactivate.ogg', 50, FALSE)
@@ -1974,7 +1977,7 @@
 			spawn(30 SECONDS)
 				if(caster)
 					caster.client?.prefs.chat_toggles &= ~CHAT_DEAD
-					caster.see_invisible = initial(caster.see_invisible)
+					caster.update_sight()
 		if(2)
 			var/chosen_z
 			var/umbra_z

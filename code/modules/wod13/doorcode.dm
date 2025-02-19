@@ -564,7 +564,7 @@
 	opacity = FALSE
 	baseicon = "prison"
 	glass = TRUE
-	lockpick_difficulty = 12
+	lockpick_difficulty = 8
 
 /obj/structure/vampdoor/wood
 	icon_state = "wood-1"
@@ -604,6 +604,15 @@
 	locked = TRUE
 	lock_id = "clerk"
 	lockpick_difficulty = 7
+
+/obj/structure/vampdoor/pentex
+	icon_state = "shop-1"
+	opacity = FALSE
+	baseicon = "shop"
+	glass = TRUE
+	locked = TRUE
+	lock_id = "pentex"
+	lockpick_difficulty = 8
 
 /obj/structure/vampdoor/prince
 	icon_state = "glass-1"

@@ -244,11 +244,14 @@
 	var/list/masquerade_voters = list()
 	var/list/voted_for = list()
 	var/flavor_text
+	var/headshot
+	var/headshot_link
 	var/true_real_name
 	var/died_already = FALSE
 
 	var/bloodpool = 5
 	var/maxbloodpool = 5
+	var/cursed_bloodpool = 0
 	var/generation = 13
 	var/humanity = 7
 	var/masquerade = 5
