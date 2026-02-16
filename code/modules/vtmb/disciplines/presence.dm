@@ -339,7 +339,6 @@
 
 /datum/discipline_power/presence/entrancement/activate(mob/living/carbon/human/target)
 	. = ..()
-	var/mypower = secret_vampireroll(max(get_a_charisma(owner), get_a_appearance(owner))+get_a_empathy(owner), get_a_willpower(target), owner)
 	target.remove_overlay(MUTATIONS_LAYER)
 	var/mutable_appearance/presence_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "presence", -MUTATIONS_LAYER)
 	presence_overlay.pixel_z = 1
