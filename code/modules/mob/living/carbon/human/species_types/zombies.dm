@@ -6,7 +6,7 @@
 	id = "zombie"
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR, LIPS, HAS_FLESH, HAS_BONE)
-	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER, TRAIT_LIMBATTACHMENT, TRAIT_VIRUSIMMUNE, TRAIT_NOBLEED, TRAIT_NOHUNGER, TRAIT_NOBREATH, TRAIT_NOMETABOLISM, TRAIT_TOXIMMUNE, TRAIT_NOCRITDAMAGE, TRAIT_FAKEDEATH, TRAIT_UNMASQUERADE)
+	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER, TRAIT_LIMBATTACHMENT, TRAIT_VIRUSIMMUNE, TRAIT_NOBLEED, TRAIT_NOHUNGER, TRAIT_NOBREATH, TRAIT_NOMETABOLISM, TRAIT_TOXIMMUNE, TRAIT_NOCRITDAMAGE, TRAIT_FAKEDEATH, VIOLATING_FACE)
 	use_skintones = TRUE
 	limbs_id = "rotten2"
 	mutantbrain = /obj/item/organ/brain/vampire //to prevent brain transplant surgery
@@ -133,7 +133,7 @@
 
 /datum/species/zombie/spec_life(mob/living/carbon/human/H)
 	. = ..()
-	if(HAS_TRAIT(H, TRAIT_UNMASQUERADE))
+	if(!(H.wear_suit.flags_inv & HIDEJUMPSUIT))
 		if(H.CheckEyewitness(H, H, 7, FALSE))
 			if(H.zombie_owner)
 				var/mob/living/carbon/human/churka = H.zombie_owner
