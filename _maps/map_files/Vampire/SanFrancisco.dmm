@@ -32064,6 +32064,18 @@
 /obj/item/stack/cable_coil/five,
 /turf/open/floor/plating/vampplating,
 /area/vtm/interior/techshop)
+"fGx" = (
+/obj/structure/ship/bollard/alt{
+	icon = 'code/modules/wod13/icons_newvechle/boat_big.dmi';
+	icon_state = "boat_blue";
+	density = 1;
+	name = "boat";
+	dir = 4;
+	pixel_x = -48;
+	pixel_y = -32
+	},
+/turf/open/floor/plating/vampocean,
+/area/vtm)
 "fGD" = (
 /obj/structure/fluff/hedge,
 /obj/structure/railing,
@@ -36362,6 +36374,9 @@
 /obj/structure/showcase/machinery/tv{
 	pixel_y = 13
 	},
+/obj/item/toy/cards/deck{
+	pixel_x = 16
+	},
 /turf/open/floor/plating/ship,
 /area/vtm/supply)
 "hww" = (
@@ -36951,6 +36966,25 @@
 	},
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior)
+"hJy" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1
+	},
+/obj/structure/railing{
+	icon_state = "lowfence";
+	icon = 'code/modules/wod13/32x48.dmi'
+	},
+/obj/structure/ship/bollard/alt{
+	icon = 'code/modules/wod13/icons_newvechle/boat.dmi';
+	icon_state = "wooden_boat";
+	density = 1;
+	name = "boat";
+	dir = 4;
+	pixel_x = -16
+	},
+/turf/open/floor/plating/ship,
+/area/vtm/supply)
 "hJE" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/effect/decal/bordur{
@@ -38639,6 +38673,18 @@
 	},
 /turf/open/floor/plating/vampcanalplating,
 /area/vtm/interior/vjanitor)
+"isD" = (
+/obj/structure/ship/bollard/alt{
+	icon = 'code/modules/wod13/icons_newvechle/boat_big.dmi';
+	icon_state = "boat_gruz";
+	density = 1;
+	name = "boat";
+	dir = 4;
+	pixel_x = -48;
+	pixel_y = -32
+	},
+/turf/open/floor/plating/vampocean,
+/area/vtm)
 "isM" = (
 /obj/effect/decal/bordur{
 	dir = 8
@@ -38714,7 +38760,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/open/floor/plating/ship/lines,
+/turf/open/floor/plasteel/stairs{
+	dir = 4
+	},
 /area/vtm/supply)
 "itZ" = (
 /obj/item/kirbyplants/random,
@@ -39273,6 +39321,10 @@
 /obj/structure/coclock,
 /turf/open/floor/plating/concrete,
 /area/vtm/theatre)
+"iHv" = (
+/obj/effect/decal/wallpaper/grey,
+/turf/closed/wall/vampwall/ship,
+/area/vtm/supply)
 "iHA" = (
 /obj/structure/chair/pew/left{
 	dir = 1
@@ -39931,7 +39983,9 @@
 /obj/machinery/light{
 	pixel_y = 32
 	},
-/turf/open/floor/plating/ship/lines,
+/turf/open/floor/plasteel/stairs{
+	dir = 4
+	},
 /area/vtm/supply)
 "iUJ" = (
 /obj/structure/closet/crate/freezer/fridge,
@@ -43639,6 +43693,21 @@
 /obj/item/storage/belt/holster/detective/vampire/fbi,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior)
+"kBy" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 1;
+	pixel_y = 12
+	},
+/obj/effect/decal/shadow{
+	icon_state = "shadow-alt";
+	pixel_y = 32
+	},
+/obj/structure/ship/bollard/alt,
+/turf/open/floor/plating/vampwood,
+/area/vtm/northbeach)
 "kBE" = (
 /obj/structure/chair/sofa/right{
 	dir = 1
@@ -44993,6 +45062,17 @@
 /obj/item/clothing/suit/caution,
 /turf/open/floor/plating/toilet,
 /area/vtm/interior/laundromat)
+"liq" = (
+/obj/structure/ship/bollard/alt{
+	icon = 'code/modules/wod13/icons_newvechle/boat.dmi';
+	icon_state = "yellow_vesla_boat";
+	density = 1;
+	name = "boat";
+	dir = 8;
+	pixel_x = -16
+	},
+/turf/open/floor/plating/vampocean,
+/area/vtm)
 "lis" = (
 /obj/structure/vamptree,
 /turf/open/floor/plating/vampgrass,
@@ -48302,6 +48382,17 @@
 	},
 /turf/closed/wall/vampwall/painted/low/window,
 /area/vtm/interior/police)
+"mGS" = (
+/obj/structure/ship/bollard/alt{
+	icon = 'code/modules/wod13/icons_newvechle/boat.dmi';
+	icon_state = "red_engine_boat";
+	density = 1;
+	name = "boat";
+	dir = 8;
+	pixel_x = -16
+	},
+/turf/open/floor/plating/vampocean,
+/area/vtm)
 "mGY" = (
 /obj/effect/landmark/npcbeacon/directed{
 	dir = 8
@@ -50887,6 +50978,19 @@
 /obj/structure/fluff/hedge,
 /turf/open/floor/plating/vampplating,
 /area/vtm/camarilla)
+"nOb" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/railing{
+	icon_state = "lowfence";
+	icon = 'code/modules/wod13/32x48.dmi';
+	pixel_y = 22
+	},
+/turf/open/floor/plasteel/stairs{
+	dir = 8
+	},
+/area/vtm/supply)
 "nOh" = (
 /obj/structure/chair/comfy/brown{
 	dir = 8
@@ -57968,6 +58072,17 @@
 	},
 /turf/open/floor/carpet/green,
 /area/vtm/interior/endronoffice)
+"qOu" = (
+/obj/structure/ship/bollard/alt{
+	icon = 'code/modules/wod13/icons_newvechle/boat.dmi';
+	icon_state = "blue_engine_boat";
+	density = 1;
+	name = "boat";
+	dir = 4;
+	pixel_x = -16
+	},
+/turf/open/floor/plating/vampocean,
+/area/vtm)
 "qOz" = (
 /obj/structure/showcase/horrific_experiment,
 /turf/open/floor/plasteel/elevatorshaft{
@@ -62143,7 +62258,6 @@
 /area/vtm/interior)
 "sJZ" = (
 /obj/structure/ship/on_walls/blinker,
-/obj/structure/punching_bag,
 /obj/effect/decal/rugs,
 /turf/open/floor/plating/ship/alt,
 /area/vtm/supply)
@@ -65028,6 +65142,26 @@
 /obj/effect/decal/wallpaper/paper/green,
 /turf/closed/wall/vampwall/junk/alt,
 /area/vtm/sewer/nosferatu_town)
+"tWQ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/railing{
+	icon_state = "lowfence";
+	icon = 'code/modules/wod13/32x48.dmi';
+	pixel_y = 22
+	},
+/obj/effect/turf_decal/stripes/white/line,
+/obj/structure/ship/bollard/alt{
+	icon = 'code/modules/wod13/icons_newvechle/boat.dmi';
+	icon_state = "wooden_boat";
+	density = 1;
+	name = "boat";
+	dir = 4;
+	pixel_x = -16
+	},
+/turf/open/floor/plating/ship,
+/area/vtm/supply)
 "tWW" = (
 /obj/structure/table/bronze,
 /obj/item/food/grown/cabbage,
@@ -65289,6 +65423,18 @@
 	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/mansion)
+"udW" = (
+/obj/structure/ship/bollard/alt{
+	icon = 'code/modules/wod13/icons_newvechle/boat_big.dmi';
+	icon_state = "boat_standart";
+	density = 1;
+	name = "boat";
+	dir = 4;
+	pixel_x = -48;
+	pixel_y = -32
+	},
+/turf/open/floor/plating/vampocean,
+/area/vtm)
 "udX" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -67747,6 +67893,12 @@
 /obj/item/reagent_containers/food/drinks/beer/vampire/blue_stripe,
 /turf/open/floor/plating/concrete,
 /area/vtm/supply)
+"vcW" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/ship/bollard/alt,
+/turf/open/floor/plating/vampwood,
+/area/vtm/northbeach)
 "vcX" = (
 /obj/structure/fluff/hedge,
 /obj/structure/flora/ausbushes/ywflowers,
@@ -69195,7 +69347,9 @@
 	pixel_y = 12;
 	pixel_x = 8
 	},
-/turf/open/floor/plating/ship,
+/turf/open/floor/plasteel/stairs{
+	dir = 8
+	},
 /area/vtm/supply)
 "vID" = (
 /obj/effect/decal/pallet,
@@ -141688,7 +141842,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 ibp
 cFT
 kXz
@@ -141945,7 +142099,7 @@ aiw
 aiw
 aiw
 aKc
-aKc
+iHv
 eef
 bsY
 ryP
@@ -142201,7 +142355,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 hTx
 jzM
 xNL
@@ -142714,7 +142868,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 bQF
 fod
 vRj
@@ -142971,7 +143125,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 wzu
 aaT
 adS
@@ -143228,7 +143382,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 adS
 aaT
 adS
@@ -143485,7 +143639,7 @@ aiw
 aiw
 aiw
 aKc
-aKc
+iHv
 pRm
 aaT
 adS
@@ -143741,7 +143895,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 adS
 adS
 aaT
@@ -143998,7 +144152,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 adS
 whx
 aaT
@@ -144014,7 +144168,7 @@ aiw
 wGg
 atU
 auh
-aiw
+isD
 aiw
 aiw
 tgk
@@ -144255,7 +144409,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 adS
 adS
 aaT
@@ -144512,7 +144666,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 adS
 adS
 aaT
@@ -144769,7 +144923,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 pRm
 adS
 aaT
@@ -145026,7 +145180,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 adS
 whx
 aaT
@@ -145283,7 +145437,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 adS
 adS
 aaT
@@ -145540,7 +145694,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 adS
 nZg
 fod
@@ -145797,7 +145951,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 adS
 hXj
 aaT
@@ -146054,7 +146208,7 @@ aiw
 aiw
 aiw
 aiw
-aKc
+iHv
 bnb
 rqu
 aaT
@@ -146314,7 +146468,7 @@ aiw
 aKc
 aKc
 aKc
-aKc
+iHv
 uPm
 sCA
 weu
@@ -146571,7 +146725,7 @@ aiw
 dji
 erc
 tZc
-aKc
+iHv
 tRh
 nEP
 wgD
@@ -146828,7 +146982,7 @@ aiw
 dji
 tBV
 tZc
-aKc
+iHv
 lNy
 wgD
 vfo
@@ -154773,7 +154927,7 @@ atf
 atn
 atS
 auh
-aiw
+udW
 aiw
 aiw
 aiw
@@ -155024,11 +155178,11 @@ aiw
 aiw
 aiw
 aiw
-aiw
-asP
+mGS
+kBy
 atf
 wBZ
-atS
+vcW
 auh
 aiw
 aiw
@@ -155538,13 +155692,13 @@ aiw
 aiw
 aiw
 aiw
-aiw
-asP
+fGx
+kBy
 atf
 atf
-atS
+vcW
 aui
-aiw
+liq
 aiw
 aiw
 apg
@@ -156053,10 +156207,10 @@ aiw
 aiw
 aiw
 aiw
-asP
+kBy
 atf
 atf
-atS
+vcW
 auh
 apg
 akG
@@ -156309,7 +156463,7 @@ aiw
 aiw
 aiw
 aiw
-aiw
+qOu
 asP
 atf
 atf
@@ -208768,7 +208922,7 @@ soH
 soH
 soH
 iUH
-wtw
+bsY
 itU
 soH
 soH
@@ -211076,7 +211230,7 @@ aiA
 aiA
 aiA
 aiA
-bct
+tWQ
 adS
 adS
 fEz
@@ -211086,7 +211240,7 @@ jzM
 ads
 adS
 adS
-aIU
+hJy
 aiA
 aiA
 aiA
@@ -211590,7 +211744,7 @@ aiA
 aiA
 aiA
 aiA
-bct
+tWQ
 adS
 adS
 acP
@@ -211600,7 +211754,7 @@ rVJ
 hht
 mkO
 adS
-aIU
+hJy
 aiA
 aiA
 aiA
@@ -211849,7 +212003,7 @@ aiA
 aiA
 pAS
 adS
-adS
+wgD
 iaP
 pmV
 pmV
@@ -212104,9 +212258,9 @@ aiA
 aiA
 aiA
 aiA
-bct
+nOb
 vIw
-cpJ
+sCA
 kMJ
 dEU
 xly
@@ -212369,9 +212523,9 @@ xNM
 xoK
 jLL
 soH
-pRm
-wtw
-wtw
+uPm
+sCA
+sCA
 aiA
 aiA
 aiA
