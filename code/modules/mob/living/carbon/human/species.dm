@@ -1498,6 +1498,7 @@ GLOBAL_LIST_EMPTY(selectable_races)
 		target.lastattacker = user.real_name
 		target.lastattackerckey = user.ckey
 		user.lastattacked = target
+		user.lastattacked_time = world.time
 		user.dna.species.spec_unarmedattacked(user, target)
 
 		if(user.limb_destroyer)

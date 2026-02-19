@@ -124,7 +124,7 @@
 	GH.Grant(src)
 	var/datum/action/gift/howling/howl = new()
 	howl.Grant(src)
-	if(!HAS_TRAIT(src, TRAIT_CORAX) || !iscorax(src))
+	if(auspice.tribe.name == "Bone Gnawers")
 		var/datum/action/gift/guise_of_the_hound/guise = new()
 		guise.Grant(src)
 	add_verb(src, /mob/living/proc/mob_sleep)

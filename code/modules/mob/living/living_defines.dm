@@ -12,6 +12,7 @@
 	var/lastattackerckey = null
 
 	var/mob/living/lastattacked = null
+	var/lastattacked_time = 0
 
 	//Health and life related vars
 	/// Maximum health that should be possible.

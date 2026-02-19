@@ -240,6 +240,7 @@
 		if(isliving(user))
 			var/mob/living/V = user
 			V.lastattacked = L
+			V.lastattacked_time = world.time
 		L.visible_message("<span class='danger'>[user] stuns [L] with [src]!</span>", \
 								"<span class='userdanger'>[user] stuns you with [src]!</span>")
 		log_combat(user, L, "stunned")

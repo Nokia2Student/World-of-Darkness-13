@@ -6,6 +6,7 @@
 	var/rage = 1
 	var/start_gnosis = 1
 	var/gnosis = 1
+	var/willpower = 1
 	var/breed_form = FORM_HOMID
 	var/datum/garou_tribe/tribe = new /datum/garou_tribe/wendigo()
 	var/list/gifts = list()
@@ -29,7 +30,9 @@
 	corvid?.dna = C.dna
 	ADD_TRAIT(corvid, TRAIT_CORAX, tribe)
 
+	willpower = 6+level
 	rage = start_rage
+
 	if(length(gifts))
 		for(var/i in gifts)
 			var/datum/action/A1 = new i()

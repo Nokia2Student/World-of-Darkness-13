@@ -206,6 +206,7 @@
 	M.lastattacker = user.real_name
 	M.lastattackerckey = user.ckey
 	user.lastattacked = M
+	user.lastattacked_time = world.time
 	M.attacked_by(src, user)
 	add_fingerprint(user)
 

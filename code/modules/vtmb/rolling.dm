@@ -388,17 +388,13 @@ SUBSYSTEM_DEF(woddices)
 			return ohvampire.MyPath.willpower
 		else if(ohvampire.mind?.dharma)
 			return ohvampire.mind.dharma.willpower
-		else if(isgarou(Living) || iswerewolf(Living))
-			var/mob/living/carbon/C = Living
-			switch(C.client.prefs.auspice_level)
-				if(1)
-					return 7
-				if(2)
-					return 8
-				if(3)
-					return 9
+		else if(isgarou(ohvampire))
+			return ohvampire.auspice.willpower
 		else
 			return ceil(ohvampire.humanity/2)
+	else if(iswerewolf(Living))
+		var/mob/living/carbon/werewolf/furry = Living
+		return furry.auspice.willpower
 	else
 		return 2
 
@@ -483,6 +479,8 @@ SUBSYSTEM_DEF(woddices)
 	if(!stealthy)
 		to_chat(rollperformer, result)
 	if(wins < 0)
+		if(isgarou(rollperformer) || iswerewolf(rollperformer))
+			adjust_rage(1, rollperformer)
 		if(!stealthy)
 			create_number_on_mob(rollperformer, "#ff0000", "Botch!")
 		return -1
