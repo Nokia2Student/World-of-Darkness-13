@@ -1,6 +1,8 @@
+/mob/living/carbon
+	var/willpower_auto = FALSE
+
 /mob/living/carbon/human
 	var/datum/morality_path/MyPath
-	var/willpower_auto = FALSE
 
 /datum/morality_path
 	var/mob/living/carbon/human/owner
