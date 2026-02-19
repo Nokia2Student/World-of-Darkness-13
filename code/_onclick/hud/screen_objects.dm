@@ -445,19 +445,19 @@
 	else if(iswerewolf(usr))
 		var/mob/living/carbon/werewolf/furry = usr
 		if(icon_state != "will1")
-				if(!furry.auspice.willpower)
-					to_chat(usr, "<span class='warning'>You don't have any willpower.</span>")
-					return
-				furry.auspice.willpower = max(0, furry.auspice.willpower-1)
-				to_chat(usr, "<span class='notice'>You spend 1 dot of your willpower, and now will get best roll results for 1 minute. [furry.auspice.willpower] willpower dots remain.</span>")
-				icon_state = "will1"
-				furry.willpower_auto = TRUE
-				if(HAS_TRAIT(furry, TRAIT_PAIN_CANT_HEAL))
-					furry.remove_status_effect(/datum/status_effect/hundred_deaths)
-				spawn(1 MINUTES)
-					to_chat(furry, "<span class='warning'>You no longer feel the willpower inside. [furry.auspice.willpower] willpower dots remain.</span>")
-					icon_state = "will0"
-					ohvampire.willpower_auto = FALSE
+			if(!furry.auspice.willpower)
+				to_chat(usr, "<span class='warning'>You don't have any willpower.</span>")
+				return
+			furry.auspice.willpower = max(0, furry.auspice.willpower-1)
+			to_chat(usr, "<span class='notice'>You spend 1 dot of your willpower, and now will get best roll results for 1 minute. [furry.auspice.willpower] willpower dots remain.</span>")
+			icon_state = "will1"
+			furry.willpower_auto = TRUE
+			if(HAS_TRAIT(furry, TRAIT_PAIN_CANT_HEAL))
+				furry.remove_status_effect(/datum/status_effect/hundred_deaths)
+			spawn(1 MINUTES)
+				to_chat(furry, "<span class='warning'>You no longer feel the willpower inside. [furry.auspice.willpower] willpower dots remain.</span>")
+				icon_state = "will0"
+				ohvampire.willpower_auto = FALSE
 
 /atom/movable/screen/pull
 	name = "stop pulling"
