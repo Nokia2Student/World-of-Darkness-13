@@ -356,7 +356,7 @@
 	if(iswerewolf(target) || isgarou(target))
 		var/mob/living/carbon/M = target
 		if(!M.is_base_breed() || M.auspice?.breed_form == FORM_CRINOS)
-			if(M.auspice.gnosis)
+			if(M.auspice?.gnosis)
 				if(prob(50))
 					adjust_gnosis(-1, M)
 			else
@@ -378,7 +378,7 @@
 	if(iswerewolf(target) || isgarou(target))
 		var/mob/living/carbon/M = target
 		if(!M.is_base_breed() || M.auspice?.breed_form == FORM_CRINOS)
-			if(M.auspice.gnosis)
+			if(M.auspice?.gnosis)
 				if(prob(50))
 					adjust_gnosis(-1, M)
 			else
@@ -399,7 +399,7 @@
 	if(iswerewolf(target) || isgarou(target))
 		var/mob/living/carbon/M = target
 		if(!M.is_base_breed() || M.auspice?.breed_form == FORM_CRINOS)
-			if(M.auspice.gnosis)
+			if(M.auspice?.gnosis)
 				if(prob(50))
 					adjust_gnosis(-1, M)
 			else
@@ -422,7 +422,7 @@
 	if(iswerewolf(target) || isgarou(target))
 		var/mob/living/carbon/M = target
 		if(!M.is_base_breed() || M.auspice?.breed_form == FORM_CRINOS)
-			if(M.auspice.gnosis)
+			if(M.auspice?.gnosis)
 				if(prob(50))
 					adjust_gnosis(-1, M)
 			else
