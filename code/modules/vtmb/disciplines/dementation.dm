@@ -40,7 +40,7 @@
 	cooldown_length = 10 SECONDS
 	duration_length = 3 SECONDS
 
-/datum/discipline_power/dementation/passion/activate(mob/living/carbon/target)
+/datum/discipline_power/dementation/passion/activate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 	var/mutable_appearance/dementation_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "dementation", -MUTATIONS_LAYER)
@@ -56,7 +56,7 @@
 	if(target.body_position == STANDING_UP)
 		target.toggle_resting()
 
-/datum/discipline_power/dementation/passion/deactivate(mob/living/carbon/target)
+/datum/discipline_power/dementation/passion/deactivate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 
@@ -75,7 +75,7 @@
 	cooldown_length = 10 SECONDS
 	duration_length = 3 SECONDS
 
-/datum/discipline_power/dementation/the_haunting/activate(mob/living/carbon/target)
+/datum/discipline_power/dementation/the_haunting/activate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 	var/mutable_appearance/dementation_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "dementation", -MUTATIONS_LAYER)
@@ -87,7 +87,7 @@
 	target.hallucination += 50
 	new /datum/hallucination/oh_yeah(target, TRUE)
 
-/datum/discipline_power/dementation/the_haunting/deactivate(mob/living/carbon/target)
+/datum/discipline_power/dementation/the_haunting/deactivate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 
@@ -106,7 +106,7 @@
 	cooldown_length = 10 SECONDS
 	duration_length = 3 SECONDS
 
-/datum/discipline_power/dementation/eyes_of_chaos/activate(mob/living/carbon/target)
+/datum/discipline_power/dementation/eyes_of_chaos/activate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 	var/mutable_appearance/dementation_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "dementation", -MUTATIONS_LAYER)
@@ -122,7 +122,7 @@
 		else
 			dancesecond(target)
 
-/datum/discipline_power/dementation/eyes_of_chaos/deactivate(mob/living/carbon/target)
+/datum/discipline_power/dementation/eyes_of_chaos/deactivate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 
@@ -231,7 +231,7 @@
 	cooldown_length = 10 SECONDS
 	duration_length = 3 SECONDS
 
-/datum/discipline_power/dementation/voice_of_madness/activate(mob/living/carbon/target)
+/datum/discipline_power/dementation/voice_of_madness/activate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 	var/mutable_appearance/dementation_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "dementation", -MUTATIONS_LAYER)
@@ -243,7 +243,7 @@
 	//change this to something better than an 8 second instastun
 	new /datum/hallucination/death(target, TRUE)
 
-/datum/discipline_power/dementation/voice_of_madness/deactivate(mob/living/carbon/target)
+/datum/discipline_power/dementation/voice_of_madness/deactivate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 
@@ -262,7 +262,7 @@
 	cooldown_length = 10 SECONDS
 	duration_length = 3 SECONDS
 
-/datum/discipline_power/dementation/total_insanity/activate(mob/living/carbon/target)
+/datum/discipline_power/dementation/total_insanity/activate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 	var/mutable_appearance/dementation_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "dementation", -MUTATIONS_LAYER)
@@ -275,6 +275,6 @@
 	for(var/i in 1 to 20)
 		addtimer(cb, (i - 1) * 1.5 SECONDS)
 
-/datum/discipline_power/dementation/total_insanity/deactivate(mob/living/carbon/target)
+/datum/discipline_power/dementation/total_insanity/deactivate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)

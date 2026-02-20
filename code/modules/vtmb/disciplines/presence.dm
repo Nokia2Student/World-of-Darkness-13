@@ -14,7 +14,7 @@
 	activate_sound = 'code/modules/wod13/sounds/presence_activate.ogg'
 	deactivate_sound = 'code/modules/wod13/sounds/presence_deactivate.ogg'
 
-/datum/discipline_power/presence/activate(mob/living/carbon/target)
+/datum/discipline_power/presence/activate(mob/living/carbon/human/target)
 	. = ..()
 	if(iscathayan(target))
 		if(target.mind.dharma?.Po == "Legalist")
@@ -329,7 +329,7 @@
 	cooldown_length = 15 SECONDS
 	duration_length = 5 SECONDS
 
-/datum/discipline_power/presence/entrancement/pre_activation_checks(mob/living/target)
+/datum/discipline_power/presence/entrancement/pre_activation_checks(mob/living/carbon/human/target)
 	if(get_trufaith_level(target) >= 3)
 		to_chat(owner, "<span class='warning'>Their faith protects them from your presence.</span>")
 		return FALSE
@@ -344,7 +344,7 @@
 
 	return TRUE
 
-/datum/discipline_power/presence/entrancement/activate(mob/living/carbon/target)
+/datum/discipline_power/presence/entrancement/activate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 	var/mutable_appearance/presence_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "presence", -MUTATIONS_LAYER)
@@ -382,7 +382,7 @@
 		if(I2)
 			I2.throw_at(get_turf(owner), 3, 1, target)
 
-/datum/discipline_power/presence/entrancement/deactivate(mob/living/carbon/target)
+/datum/discipline_power/presence/entrancement/deactivate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 
@@ -416,7 +416,7 @@
 
 	return TRUE
 
-/datum/discipline_power/presence/summon/activate(mob/living/carbon/target)
+/datum/discipline_power/presence/summon/activate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 	var/mutable_appearance/presence_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "presence", -MUTATIONS_LAYER)
@@ -432,7 +432,7 @@
 	target.emote("scream")
 	target.do_jitter_animation(3 SECONDS)
 
-/datum/discipline_power/presence/summon/deactivate(mob/living/carbon/target)
+/datum/discipline_power/presence/summon/deactivate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 
@@ -472,7 +472,7 @@
 
 	return TRUE
 
-/datum/discipline_power/presence/majesty/activate(mob/living/carbon/target)
+/datum/discipline_power/presence/majesty/activate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 	var/mutable_appearance/presence_overlay = mutable_appearance('code/modules/wod13/icons.dmi', "presence", -MUTATIONS_LAYER)
@@ -486,7 +486,7 @@
 	for(var/obj/item/clothing/W in target.contents)
 		target.dropItemToGround(W, TRUE)
 
-/datum/discipline_power/presence/majesty/deactivate(mob/living/carbon/target)
+/datum/discipline_power/presence/majesty/deactivate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
 

@@ -479,10 +479,11 @@ SUBSYSTEM_DEF(woddices)
 	if(!stealthy)
 		to_chat(rollperformer, result)
 	if(wins < 0)
-		if(isgarou(rollperformer) || iswerewolf(rollperformer))
-			adjust_rage(1, rollperformer)
 		if(!stealthy)
 			create_number_on_mob(rollperformer, "#ff0000", "Botch!")
+		if(isgarou(rollperformer) || iswerewolf(rollperformer) && (rollperformer.last_botch_rage_gain + 5 SECONDS) < world.time)
+			last_botch_rage_gain = world.time
+			adjust_rage(1, rollperformer)
 		return -1
 	if(wins == 0)
 		if(!stealthy)

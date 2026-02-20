@@ -22,7 +22,7 @@
 	if(iscathayan(target))
 		if(target.mind.dharma?.Po == "Legalist")
 			target.mind.dharma?.roll_po(owner, target)
-	var/mob/living/carbon/TRGT
+	var/mob/living/carbon/human/TRGT
 	if(ishuman(target))
 		TRGT = target
 		TRGT.remove_overlay(MUTATIONS_LAYER)

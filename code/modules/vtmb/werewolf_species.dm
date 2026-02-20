@@ -35,9 +35,9 @@
 	GH.Grant(C)
 	var/datum/action/gift/howling/howl = new()
 	howl.Grant(C)
-	/*if(C.auspice.tribe.name == "Bone Gnawers")
+	if(C.auspice.tribe.name == "Bone Gnawers")
 		var/datum/action/gift/guise_of_the_hound/guise = new()
-		guise.Grant(C)*/
+		guise.Grant(C)
 	C.grant_language(/datum/language/primal_tongue, TRUE, FALSE)
 	C.grant_language(/datum/language/garou_tongue, TRUE, TRUE)
 	C.transformator = new(C)
@@ -165,7 +165,7 @@
 				else
 					adjustBruteLoss(-25, TRUE)
 					adjustFireLoss(-25, TRUE) /*
-	if((isgarou(src) || iswerewolf(src)) && src.auspice?.rage >= 1 && stat < CONSCIOUS && lastattacked_time + 1 SCENES < world.time)
+	if((isgarou(src) || iswerewolf(src)) && src.auspice?.rage >= 1 && stat > CONSCIOUS && stat < DEAD && lastattacked_time + 1 SCENES < world.time)
 		var/rage_roll = secret_vampireroll(src.auspice?.start_rage, 8, src, TRUE)
 		if(rage_roll >= 1)
 			adjust_rage(-1, src)
