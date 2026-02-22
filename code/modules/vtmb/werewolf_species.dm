@@ -159,13 +159,15 @@
 				else
 					adjustBruteLoss(-25, TRUE)
 					adjustFireLoss(-25, TRUE)
-	if((isgarou(src) || iswerewolf(src)) && auspice?.rage >= 1 && stat > CONSCIOUS && stat < DEAD && lastattacked_time + 1 SCENES < world.time)
+	if((isgarou(src) || iswerewolf(src)) && auspice?.rage >= 1 && stat > CONSCIOUS && stat < DEAD && last_wake + 1 SCENES < world.time)
+		last_wake = world.time
 		var/rage_roll = secret_vampireroll(auspice?.start_rage, 8, src, TRUE)
 		if(rage_roll >= 1)
 			adjust_rage(-1, src)
 			adjustBruteLoss(-25*rage_roll, TRUE)
 			adjustFireLoss(-25*rage_roll, TRUE)
 			adjustCloneLoss(-25*rage_roll, TRUE)
+			adjustOxyLoss(-25*rage_roll, TRUE)
 			enter_frenzymod()
 			addtimer(CALLBACK(src, PROC_REF(exit_frenzymod)), 100)
 			frenzy_hardness = 1
